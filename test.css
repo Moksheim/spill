@@ -26,3 +26,10 @@ form::after {
     right: 20px;
     top: -20px;
 }
+
+.knapp {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    text-align: center;
+}
