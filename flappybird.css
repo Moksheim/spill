@@ -1,0 +1,22 @@
+#boks {
+    position: relative;
+    width: 1200px;
+    height: 600px;
+    border: solid gray 1px;
+}
+
+#bird {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 0;
+    top:0;
+    border: solid gray 1px;
+    background-color: red;
+}
+
+.bird {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+}
