@@ -1,23 +1,31 @@
 //@ts-check
 
 function setup() {
-    let inpBrukernavn = document.getElementById("bruker");
+    let navnListe = [];
     let inpNavn = document.getElementById("navn");
-    let inpEpost = document.getElementById("epost");
-    let inpMobil = document.getElementById("mobil");
     let inpPassord = document.getElementById("passord");
     let btnLagre = document.getElementById("lagre");
 
     btnLagre.addEventListener("click", lagreData);
 
     function lagreData() {
-        let brukernavn = inpBrukernavn.value;
         let navn = inpNavn.value;
-        let epost = inpEpost.value;
-        let mobil = inpMobil.value;
         let passord = inpPassord.value;
-        let brukerData = { brukernavn, navn, epost, mobil, passord };
-        localStorage.setItem("brukernavn", JSON.stringify(brukerData));
+        let brukerData = { navn, passord };
+        let bareNavn = navnListe.map(e => e.navn);
+        if (bareNavn.includes(navn)) {
+            let target = navnListe.filter(e => e.navn === navn)[0];
+            if (target.passord === passord) {
 
+            } else {
+                // feil passord
+            alert("Feil passord, eller allerede eksisterende navn")
+            }
+
+        } else {
+            navnListe.push(brukerData);
+            localStorage.setItem("bruker", JSON.stringify(navnListe));
+        }
     }
+
 }
