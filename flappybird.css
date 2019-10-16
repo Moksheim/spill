@@ -20,3 +20,15 @@
     height: 30px;
     background-color: red;
 }
+
+#gameover {
+    position: absolute;
+    left: 200px;
+    top: 200px;;
+    width: 800px;
+    height: 200px;
+    color: red;
+    font-size: 10em;
+    opacity: 0.5;
+    text-align: center;
+}

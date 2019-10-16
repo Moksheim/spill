@@ -33,31 +33,56 @@ function setup() {
     let divHinder1 = document.getElementById("hinder1");
     let divHinder2 = document.getElementById("hinder2");
     let btnStart = document.getElementById("start");
-
-    btnStart.addEventListener("click", Spill);
+    let divGameover = document.getElementById("gameover");
 
     let bird;
 
+    btnStart.addEventListener("click", Spill);
+    makeBird();
+
     function Spill() {
-        makeBird();
+        setInterval(fly, 5);
+        setInterval(gameover,10);
     }
 
+   
 
     function makeBird() {
         bird = new Bird(divBird, 300, 200);
         bird.render();
     }
 
-    setInterval(fly, 100);
+
+
+    function tyngdekraft() {
+        if (bird.y > 568) {
+            return;
+        }
+        bird.y += 3;
+        bird.render();
+    }
 
     function fly() {
-        if (Keys.has("space")) {
-            bird.y -= 10;
-            bird.render();
+        if (bird.y > 568) {
+            return;
         }
-
-        bird.y += 2;
+        if (Keys.has(" ")) {
+            bird.y -= 30;
+        }
+        tyngdekraft();
     }
+
+    function gameover() {
+        if (bird.y > 568) {
+            let melding = 'Du tapte'
+            divGameover.innerHTML = String(melding);
+        }
+    }
+
+    function tap() {
+
+    }
+
 
 }
 
